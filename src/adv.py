@@ -1,5 +1,7 @@
 from room import Room
 
+# change for init commit
+
 # Declare all the rooms
 
 room = {
