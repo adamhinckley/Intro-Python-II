@@ -1,6 +1,7 @@
 from room import Room
+from player import Player
+from item import Item
 
-# change for init commit
 
 # Declare all the rooms
 
@@ -40,6 +41,8 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
+name = input('What is your name?')
+
 
 # Write a loop that:
 #
