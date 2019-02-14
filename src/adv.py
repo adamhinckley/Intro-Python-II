@@ -10,7 +10,7 @@ room = {
                      "North of you, the cave mount beckons", "no items"),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east.""", "Sword"),
+passages run north and east.""", "sword"),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
@@ -43,15 +43,18 @@ room['treasure'].s_to = room['narrow']
 # Make a new player object that is currently in the 'outside' room.
 print('Welcome to this crazy game!  Enter a name for you player...')
 name = input('>>')
-player = Player(name, room['outside'])
+player = Player(name, room['outside'], None)
 
 
 def current_room(player):
     print(f'{player.name} is in {player.room}')
-    if player.room.items != 'no items':
+    if player.room.items == 'no items':
         print('this room has no items')
     else:
-        print(f'this room has {player.room.items}')
+        print(f'this room has a{player.room.items}')
+        print(
+            'What would you like to do? [GET] pick up [N] North [S] South [E] East [W] West [Q] Quit ')
+        playerInput = input(">>").upper()
 
 
 playerInput = ''
@@ -77,6 +80,9 @@ while playerInput != 'Q':
     elif playerInput == "Q":
         print('You ended the game')
         break
+    elif playerInput == 'GET':
+        player.inventory.append(playerInput)
+        print(f'You just picked up a {playerInput}')
 
     # Write a loop that:
     #
